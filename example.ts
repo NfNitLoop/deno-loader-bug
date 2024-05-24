@@ -8,9 +8,14 @@ import * as esbuild from "npm:esbuild@0.20.2";
 import { denoPlugins } from "jsr:@luca/esbuild-deno-loader@^0.10.3";
 
 const result = await esbuild.build({
-  plugins: [...denoPlugins()],
-  entryPoints: ["https://deno.land/std@0.185.0/bytes/mod.ts"],
-  outfile: "./dist/bytes.esm.js",
+  plugins: [
+    // ...denoPlugins()
+  ],
+  entryPoints: [
+    "src/mod.ts",
+    "src/style.css",
+  ],
+  outdir: "dist",
   bundle: true,
   format: "esm",
 });
